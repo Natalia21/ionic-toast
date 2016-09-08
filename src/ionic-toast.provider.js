@@ -57,7 +57,7 @@ angular.module('ionic-toast.provider', [])
           });
         };
 
-        provider.show = function (message, position, isSticky, duration) {
+        provider.show = function (message, position, isSticky, duration, customClass) {
 
           if (!message) return;
           position = position || defaultConfig.position;
@@ -66,7 +66,7 @@ angular.module('ionic-toast.provider', [])
           if (duration > 10000) duration = 10000;
 
           angular.extend($scope.ionicToast, {
-            toastClass: toastPosition[position] + ' ' + (isSticky ? 'ionic_toast_sticky' : ''),
+            toastClass: toastPosition[position] + ' ' + (isSticky ? 'ionic_toast_sticky' : '') + ' ' + (customClass ? customClass : ''),
             toastMessage: message
           });
 
